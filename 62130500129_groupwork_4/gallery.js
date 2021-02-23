@@ -46,8 +46,8 @@ const app = {
 
             ],
             search: false,
-            inputSearch: '',
-            bigpic: {
+            inputSearch:'',
+            showpic: {
                 check: false,
                 index: 0
             }
@@ -62,24 +62,18 @@ const app = {
             this.inputSearch = '';
         },
        
-        searching() {
-            for (let i = 0; i < this.pics.length; i++) {
-                if (this.pics[i].Pname.search(this.search) !== -1 || this.pics[i].Oname.search(this.search) !== -1) {
-                    console.log(i)
-                    this.pics[i].show = true
-                } else {
-                    this.pics[i].show = false
-                }
-            }
-        },
+        
         check(index) {
             if (index == -1) {
-                this.bigpic.check = false
+                this.showpic.check = false
             } else {
-                this.bigpic.check = true
+                this.showpic.check = true
                 this.bigpic.index = index
             }
         }
+
+
+        
 
 
     },
@@ -89,6 +83,16 @@ const app = {
         },
         countliked() {
             return this.pics.filter(p => p.done).length
+        },
+        searching() {
+            for (let i = 0; i < this.pics.length; i++) {
+                if (this.pics[i].Pname.search(this.inputSearch) !== -1 || this.pics[i].Oname.search(this.inputSearch) !== -1) {
+                    this.pics[i].show = true
+                } else {
+                    console.log(i)
+                    this.pics[i].show = false
+                }
+            }
         }
     }
 
