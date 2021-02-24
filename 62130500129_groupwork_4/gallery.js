@@ -68,7 +68,7 @@ const app = {
                 this.showpic.check = false
             } else {
                 this.showpic.check = true
-                this.bigpic.index = index
+                this.showpic.index = index
             }
         }
 
